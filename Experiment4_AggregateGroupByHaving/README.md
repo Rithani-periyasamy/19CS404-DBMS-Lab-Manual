@@ -37,124 +37,348 @@ HAVING condition;
 ```
 
 **Question 1**
---
--- Paste Question 1 here
+--What is the average age of doctors in each medical specialty?
+
+Sample table:Doctors Table
+
+
+
+For example:
+
+Result
+Specialty          AvgAge
+-----------------  ----------
+Endocrinology      44.0
+Gastroenterology   39.0
+Neurology          41.0
+Obstetrics         53.0
+Pediatrics         48.0
+Urology            44.0
+
 
 ```sql
--- Paste your SQL code below for Question 1
+SELECT Specialty, AVGAge AS AvgAge
+FROM Doctors
+GROUP BY Specialty;
 ```
 
 **Output:**
+<img width="265" height="210" alt="image" src="https://github.com/user-attachments/assets/33106d4b-4a1a-4e55-a354-35f640de4f09" />
 
-![Output1](output.png)
+
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+What is the total number of medications prescribed for each patient?
+
+Sample tablePrescriptions Table
+
+
+
+For example:
+
+Result
+PatientID   TotalMedications
+----------  ----------------
+1           1
+2           1
+3           1
+4           1
+5           1
+6           1
+7           1
+8           1
+9           1
+10          1
+
+
 
 ```sql
--- Paste your SQL code below for Question 2
+SELECT PatientID, COUNT(*) AS TotalMedications
+FROM Prescriptions
+GROUP BY PatientID
+ORDER BY PatientID;
+
 ```
 
 **Output:**
+<img width="266" height="717" alt="image" src="https://github.com/user-attachments/assets/1b362a6c-4e03-4893-aa22-f9c863744136" />
 
-![Output2](output.png)
+
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+What is the total number of appointments scheduled by each doctor?
+
+Sample table:Appointments Table
+
+
+
+For example:
+
+Result
+DoctorID    TotalAppointments
+----------  -----------------
+1           1
+2           3
+5           3
+9           2
+10          1
+
+
 
 ```sql
--- Paste your SQL code below for Question 3
+SELECT DoctorID, COUNT(*) AS TotalAppointments
+FROM Appointments
+GROUP BY DoctorID
+ORDER BY DoctorID;
+
 ```
 
 **Output:**
+<img width="272" height="502" alt="image" src="https://github.com/user-attachments/assets/9965e055-daa3-497f-b93f-38b6b8456679" />
 
-![Output3](output.png)
+
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+Write a SQL query to Calculate the average income of the employees with names starting with 'A': 
+
+Table: employee
+
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+age         INTEGER
+city        TEXT
+income      INTEGER
+For example:
+
+Result
+avg_income
+----------
+5000000.0
+
 
 ```sql
--- Paste your SQL code below for Question 4
+SELECT AVG(income) AS avg_income
+FROM employee
+WHERE name LIKE 'A%';
+
 ```
 
 **Output:**
+<img width="111" height="187" alt="image" src="https://github.com/user-attachments/assets/f2948e82-ceac-4020-85ed-360b83540505" />
 
-![Output4](output.png)
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+Write a SQL query to  find the average salary of all employees?
+
+Table: employee
+
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+age         INTEGER
+city        TEXT
+income      INTEGER
+ 
+
+For example:
+
+Result
+Average_Salary
+--------------
+1568750.0
+
+
 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT AVG(income) AS Average_Salary
+FROM employee;
+
 ```
 
 **Output:**
+<img width="160" height="167" alt="image" src="https://github.com/user-attachments/assets/b7130ea2-b0cb-4be0-a170-5ec8791e7fa0" />
 
-![Output5](output.png)
+
+
 
 **Question 6**
 ---
--- Paste Question 6 here
+Write a SQL query to find the Fruit with the lowest available quantity.
+
+Note: Inventory attribute contains amount of fruits
+
+Table: fruits
+
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+unit        TEXT
+inventory   INTEGER
+price       REAL
+ 
+
+For example:
+
+Result
+fruit_name  lowest_quantity
+----------  ---------------
+Watermelon  15
+
+
 
 ```sql
--- Paste your SQL code below for Question 6
+SELECT name AS fruit_name, inventory AS lowest_quantity
+FROM fruits
+WHERE inventory = (SELECT MIN(inventory) FROM fruits);
+
 ```
 
 **Output:**
+<img width="265" height="267" alt="image" src="https://github.com/user-attachments/assets/d4011d69-fcd0-4e98-b2ee-b9bcd012a1ec" />
 
-![Output6](output.png)
+
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+Write a SQL query to find the average length of email addresses (in characters):
+
+Table: customer
+
+name        type
+----------  ----------
+id          INTEGER
+name        TEXT
+city        TEXT
+email       TEXT
+phone       INTEGER
+For example:
+
+Result
+avg_email_length
+----------------
+15.0
+
+
 
 ```sql
--- Paste your SQL code below for Question 7
+
+SELECT AVG(LENGTH(email)) AS avg_email_length
+FROM customer;
 ```
 
 **Output:**
+<img width="183" height="230" alt="image" src="https://github.com/user-attachments/assets/af4bfcd0-ee59-4256-8a44-9e242223f88c" />
 
-![Output7](output.png)
+
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+Write the SQL query that accomplishes the selection of total cost of all products in each category from the "products" table and includes only those products where the total cost is greater than 50.
+
+Sample table: products
+
+
+
+For example:
+
+Result
+category_id  Total_Cost
+-----------  ----------
+2            63
+
+
 
 ```sql
--- Paste your SQL code below for Question 8
+SELECT category_id, SUM(price) AS Total_Cost
+FROM products
+GROUP BY category_id
+HAVING SUM(price) > 50;
+
 ```
 
 **Output:**
+<img width="210" height="216" alt="image" src="https://github.com/user-attachments/assets/9f857c0b-cdb4-4c01-837e-4330997fdc07" />
 
-![Output8](output.png)
+
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+Write the SQL query that achieves the grouping of data by city, calculates the average income for each city, and includes only those cities where the average income is greater than 500,000.
+
+Sample table: employee
+
+
+
+For example:
+
+Result
+city        AVG(income)
+----------  -----------
+Arizona     1000000.0
+California  2650000.0
+Florida     2675000.0
+
+
 
 ```sql
--- Paste your SQL code below for Question 9
+SELECT city, AVG(income) AS "AVG(income)"
+FROM employee
+GROUP BY city
+HAVING AVG(income) > 500000;
+
 ```
 
 **Output:**
+<img width="226" height="297" alt="image" src="https://github.com/user-attachments/assets/24980c23-360e-4f0c-81c4-84d3c62ba2be" />
 
-![Output9](output.png)
+
+
 
 **Question 10**
 ---
--- Paste Question 10 here
+Write the SQL query that accomplishes the selection of product which has lowest price in each category from the "products" table and includes only those products where the minimum price is less than 10.
+
+Sample table: products
+
+
+
+For example:
+
+Result
+category_id  Price
+-----------  ----------
+3            7.5
+
+
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT category_id, MIN(price) AS Price
+FROM products
+GROUP BY category_id
+HAVING MIN(price) < 10;
+
 ```
 
 **Output:**
+<img width="278" height="240" alt="image" src="https://github.com/user-attachments/assets/4d360345-a929-4407-89c1-c14da9bb5837" />
 
-![Output10](output.png)
+
+
 
 
 ## RESULT
