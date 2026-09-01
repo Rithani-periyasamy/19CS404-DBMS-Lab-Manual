@@ -68,6 +68,30 @@ END;
 
 1. **NO_DATA_FOUND**: When no rows are fetched.
 2. **OTHERS**: Any other unexpected errors during execution.
+**code**
+-- Create employees table
+CREATE TABLE employees (
+    emp_id INTEGER PRIMARY KEY,
+    emp_name TEXT,
+    designation TEXT
+);
+
+-- Insert sample data
+INSERT INTO employees (emp_id, emp_name, designation) VALUES
+(1, 'Arun', 'Manager'),
+(2, 'Priya', 'Developer'),
+(3, 'Karthik', 'Tester');
+
+-- Fetch employee details
+SELECT emp_name, designation
+FROM employees;
+
+SELECT CASE
+    WHEN COUNT(*) = 0 THEN 'No employee data found'
+    ELSE 'Employee details found'
+END AS Result
+FROM employees;
+   
 
 **Steps:**
 
@@ -77,6 +101,8 @@ END;
 - Implement exception handling to catch the relevant exceptions and display appropriate messages.
 
 **Output:**  
+<img width="517" height="416" alt="WhatsApp Image 2026-09-01 at 7 46 32 PM" src="https://github.com/user-attachments/assets/2cf99fb9-e4d5-4262-a128-dbbba82b7838" />
+
 The program should display the employee details or an error message.
 
 ---
@@ -87,6 +113,26 @@ The program should display the employee details or an error message.
 
 1. **NO_DATA_FOUND**: When no employees meet the salary criteria.
 2. **OTHERS**: For any unexpected errors during the execution.
+**code**
+ALTER TABLE employees ADD COLUMN salary REAL;
+
+-- Insert salary values
+UPDATE employees SET salary = 50000 WHERE emp_id = 1;
+UPDATE employees SET salary = 35000 WHERE emp_id = 2;
+UPDATE employees SET salary = 45000 WHERE emp_id = 3;
+
+-- Salary range: 40000 to 60000
+SELECT emp_id, emp_name, designation, salary
+FROM employees
+WHERE salary BETWEEN 40000 AND 60000;
+
+SELECT CASE
+    WHEN COUNT(*) = 0 THEN 'No employees found in the given salary range'
+    ELSE 'Employees found in the given salary range'
+END AS Result
+FROM employees
+WHERE salary BETWEEN 70000 AND 90000;
+   
 
 **Steps:**
 
@@ -96,6 +142,13 @@ The program should display the employee details or an error message.
 - Implement exception handling to catch and display relevant error messages.
 
 **Output:**  
+<img width="822" height="467" alt="WhatsApp Image 2026-09-01 at 8 18 28 PM" src="https://github.com/user-attachments/assets/e1c72a93-d9cf-4def-bf3c-f6b9692f7dda" />
+
+
+
+
+
+
 The program should display the employee details within the specified salary range or an error message if no data is found.
 
 ---
@@ -106,6 +159,26 @@ The program should display the employee details within the specified salary rang
 
 1. **NO_DATA_FOUND**: If no employees are found in the database.
 2. **OTHERS**: For any other unexpected errors.
+**code**
+   -- Add salary column
+ALTER TABLE employees ADD COLUMN salary REAL;
+
+-- Insert salary values
+UPDATE employees SET salary = 50000 WHERE emp_id = 1;
+UPDATE employees SET salary = 35000 WHERE emp_id = 2;
+UPDATE employees SET salary = 45000 WHERE emp_id = 3;
+
+-- Salary range: 40000 to 60000
+SELECT emp_id, emp_name, designation, salary
+FROM employees
+WHERE salary BETWEEN 40000 AND 60000;
+SELECT CASE
+    WHEN COUNT(*) = 0 THEN 'No employees found in the given salary range'
+    ELSE 'Employees found in the given salary range'
+END AS Result
+FROM employees
+WHERE salary BETWEEN 70000 AND 90000;
+
 
 **Steps:**
 
@@ -115,6 +188,11 @@ The program should display the employee details within the specified salary rang
 - Implement exception handling to catch the relevant exceptions.
 
 **Output:**  
+
+<img width="545" height="432" alt="WhatsApp Image 2026-09-01 at 8 18 49 PM" src="https://github.com/user-attachments/assets/ef71d904-7a14-49be-9e98-199b2f589bec" />
+
+
+
 The program should display employee names with their department numbers or the appropriate error message if no data is found.
 
 ---
@@ -125,6 +203,14 @@ The program should display employee names with their department numbers or the a
 
 1. **NO_DATA_FOUND**: When no employees are found in the database.
 2. **OTHERS**: For any other errors that occur.
+   **code**
+   SELECT CASE
+    WHEN COUNT(*) = 0 THEN 'No employees found'
+    ELSE 'Employee records found'
+END AS Result
+FROM employees;
+   
+   
 
 **Steps:**
 
@@ -134,6 +220,12 @@ The program should display employee names with their department numbers or the a
 - Implement exception handling to catch the relevant exceptions and display appropriate messages.
 
 **Output:**  
+<img width="546" height="473" alt="WhatsApp Image 2026-09-01 at 8 19 01 PM" src="https://github.com/user-attachments/assets/0a19389b-85f8-4d55-828c-f4a20711d6cf" />
+
+
+
+
+
 The program should display employee records or the appropriate error message if no data is found.
 
 ---
@@ -144,6 +236,19 @@ The program should display employee records or the appropriate error message if 
 
 1. **NO_DATA_FOUND**: If no rows are affected by the update.
 2. **OTHERS**: For any unexpected errors during execution.
+ **code**
+   SELECT CASE
+    WHEN COUNT(*) = 0 THEN 'No employees found in the department'
+    ELSE 'Employee salaries updated successfully'
+END AS Result
+FROM employees
+WHERE dept_no = 10;
+SELECT CASE
+    WHEN COUNT(*) = 0 THEN 'No employees found in the department'
+    ELSE 'Employee salaries updated successfully'
+END AS Result
+FROM employees
+WHERE dept_no = 50;
 
 **Steps:**
 
@@ -153,6 +258,9 @@ The program should display employee records or the appropriate error message if 
 - Implement exception handling to handle `NO_DATA_FOUND` or other errors that may occur.
 
 **Output:**  
+<img width="758" height="476" alt="WhatsApp Image 2026-09-01 at 8 19 17 PM" src="https://github.com/user-attachments/assets/31f453cf-078d-4767-8406-20ee7c1b89b5" />
+
+
 The program should update employee salaries and display a message, or it should display an error message if no data is found.
 
 ---
