@@ -40,121 +40,173 @@ HAVING condition;
 --
 -- Paste Question 1 here
 
+<img width="811" height="670" alt="image" src="https://github.com/user-attachments/assets/59efd7a7-33e3-494e-b0cd-c583669d55d5" />
+
 ```sql
--- Paste your SQL code below for Question 1
+SELECT 
+  DATE(AppointmentDateTime) AS AppointmentDate,
+  COUNT(*) AS TotalAppointments
+FROM Appointments
+GROUP BY DATE(AppointmentDateTime)
+ORDER BY AppointmentDate;
 ```
 
 **Output:**
 
-![Output1](output.png)
+<img width="856" height="764" alt="image" src="https://github.com/user-attachments/assets/afa7396f-72f8-41b3-b1f6-457a0f33ef95" />
+
 
 **Question 2**
 ---
--- Paste Question 2 here
+<img width="702" height="635" alt="image" src="https://github.com/user-attachments/assets/381e60a8-42e5-4804-9bcb-86648dc4f39e" />
+
 
 ```sql
--- Paste your SQL code below for Question 2
+SELECT
+   strftime('%H',AppointmentDateTime) AS HourOfDay,
+   COUNT(*) AS TotalAppointments
+FROM Appointments
+GROUP BY HourOfDay
+ORDER BY HourOfDay;
 ```
 
 **Output:**
 
-![Output2](output.png)
+<img width="727" height="619" alt="image" src="https://github.com/user-attachments/assets/139a1a98-05bd-4b67-9173-68d9c9b3850a" />
+
 
 **Question 3**
 ---
--- Paste Question 3 here
+<img width="887" height="469" alt="image" src="https://github.com/user-attachments/assets/1b5112b2-ca06-4823-857e-0e17928129af" />
+
 
 ```sql
--- Paste your SQL code below for Question 3
+SELECT AVG(LENGTH(name)) AS avg_name_length
+FROM customer
+WHERE city = 'Chennai';
 ```
 
 **Output:**
 
-![Output3](output.png)
+<img width="497" height="397" alt="image" src="https://github.com/user-attachments/assets/4f30a533-1f40-4d4c-b6de-0f0793762be5" />
+
 
 **Question 4**
 ---
--- Paste Question 4 here
+<img width="758" height="553" alt="image" src="https://github.com/user-attachments/assets/95b4704f-eecf-4fcf-9f07-9aeace61e873" />
+
 
 ```sql
--- Paste your SQL code below for Question 4
+SELECT name as Employee_Name , age AS Age
+FROM employee
+ORDER BY age ASC
+LIMIT 1;
 ```
 
 **Output:**
 
-![Output4](output.png)
+
+
 
 **Question 5**
 ---
--- Paste Question 5 here
+
+
 
 ```sql
--- Paste your SQL code below for Question 5
+SELECT MIN(purch_amt) AS MINIMUM
+FROM orders;
 ```
 
 **Output:**
 
-![Output5](output.png)
+<img width="457" height="389" alt="image" src="https://github.com/user-attachments/assets/88ba5019-000a-4adf-8f15-603d05cd6523" />
+
 
 **Question 6**
----
--- Paste Question 6 here
+
+<img width="1237" height="510" alt="image" src="https://github.com/user-attachments/assets/1dbeff7d-0de4-41e1-832a-cad8714bf830" />
+
 
 ```sql
--- Paste your SQL code below for Question 6
+SELECT jdate , AVG(workhour) AS "AVG(workhour)"
+FROM employee1
+GROUP BY jdate
+HAVING AVG(workhour) < 10;
 ```
 
 **Output:**
 
-![Output6](output.png)
+<img width="656" height="425" alt="image" src="https://github.com/user-attachments/assets/2e68541f-3628-463f-acc0-aa2dbeaafb62" />
+
 
 **Question 7**
 ---
--- Paste Question 7 here
+<img width="1205" height="521" alt="image" src="https://github.com/user-attachments/assets/179ee717-a0d1-4916-b2f9-dca082c6fca5" />
+
 
 ```sql
--- Paste your SQL code below for Question 7
+SELECT age , SUM(income) AS "SUM(income)"
+FROM employee
+GROUP BY age
+HAVING SUM(income) > 1000000;
 ```
 
 **Output:**
 
-![Output7](output.png)
+<img width="655" height="493" alt="image" src="https://github.com/user-attachments/assets/d9f1c391-5552-48cf-a947-133c2ed6b203" />
+
 
 **Question 8**
 ---
--- Paste Question 8 here
+<img width="1211" height="544" alt="image" src="https://github.com/user-attachments/assets/2329e0af-2af5-402b-a8d0-715c5b491d1f" />
+
 
 ```sql
--- Paste your SQL code below for Question 8
+SELECT age , MIN(income) AS "MIN(income)"
+FROM employee
+GROUP BY age
+HAVING MIN(income)<400000;
 ```
 
 **Output:**
 
-![Output8](output.png)
+<img width="686" height="524" alt="image" src="https://github.com/user-attachments/assets/8c58a604-3cd9-4eda-8314-508b7eda2484" />
+
 
 **Question 9**
 ---
--- Paste Question 9 here
+<img width="1085" height="634" alt="image" src="https://github.com/user-attachments/assets/4cdf1aea-a3fa-4a7e-8f73-45edb8414615" />
+
 
 ```sql
--- Paste your SQL code below for Question 9
+SELECT Specialty,COUNT(*) AS TotalDoctors
+FROM Doctors
+GROUP BY Specialty
+ORDER BY Specialty;
 ```
 
 **Output:**
 
-![Output9](output.png)
+<img width="830" height="727" alt="image" src="https://github.com/user-attachments/assets/4ddf54b0-6a46-41d8-9e44-a2ed1d833ec9" />
+
 
 **Question 10**
----
--- Paste Question 10 here
+<img width="853" height="689" alt="image" src="https://github.com/user-attachments/assets/cc06dbff-06c7-4695-95e1-3336270fe9b5" />
+
 
 ```sql
--- Paste your SQL code below for Question 10
+SELECT strftime('%H',AppointmentDateTime) AS HourOfDay,
+    COUNT(*) AS TotalAppointments
+FROM Appointments
+GROUP BY HourOfDay
+ORDER BY HourOfDay;
 ```
 
 **Output:**
 
-![Output10](output.png)
+<img width="741" height="636" alt="image" src="https://github.com/user-attachments/assets/39f03090-eb95-420a-8113-883ee157fa39" />
+
 
 
 ## RESULT
